@@ -47,6 +47,9 @@ volumes:
 - /app/node_modules
 ```
 
+- some StackOverflow users suggested certain modifications of the `client\package.json` \
+  but in this case it didn't resolve the issue
+
 2.  
 
 Problem:
