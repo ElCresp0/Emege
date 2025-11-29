@@ -6,3 +6,16 @@ This is a full stack application made for me to learn and show the usage of the 
 
 - C# (backend)
 - vue.js (frontend)
+
+## Run on host
+
+```bash
+# server
+cd server/EmegeAPI
+dotnet run
+
+# client
+cd client
+npm install
+npm run dev
+```
