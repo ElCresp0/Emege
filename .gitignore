@@ -1,0 +1,4 @@
+.vscode
+*.sln
+
+package-lock.json
