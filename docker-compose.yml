@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     image: emege_client
     ports:
-      - "3000:5173"
+      - "3000:3000"
     volumes:
       - ./client:/app
       - /app/node_modules
