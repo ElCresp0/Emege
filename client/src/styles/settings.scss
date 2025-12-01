@@ -19,7 +19,23 @@ body {
     padding-right: 5%;
 }
 
+#root-container {
+    padding-top: 2em;
+    // padding-left: 5em;
+}
+
+.root-content-div {
+    // align-items: center;
+    // justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #eeeeee;
+}
+
+// 
 // navbar
+// 
+
 // .v-toolbar__prepend {
 //     padding-left: 1em;
 // }
