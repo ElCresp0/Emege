@@ -12,10 +12,20 @@ public class UserController : Controller
     // TODO: enhance swagger documentation
     // 
 
+    private readonly ILogger _logger;
+
+    public UserController(ILogger<UserController> logger)
+    {
+        _logger = logger;
+    }
+
     // GET: /users/{name}
     [HttpGet("/users/{name}")]
     public ActionResult getUser(string name)
     {
+        // Log
+        _logger.LogInformation($"GET user: {name}");
+
         UserModel? user = UserService.GetUser(name);
         return (user != null) ? Ok(user) : NotFound($"Could not find user: {name}");
     }

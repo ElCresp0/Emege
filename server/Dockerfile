@@ -4,6 +4,6 @@ WORKDIR /app/EmegeAPI
 
 COPY . ..
 
-EXPOSE 5007
+EXPOSE 5000
 
 CMD ["dotnet", "run"]
