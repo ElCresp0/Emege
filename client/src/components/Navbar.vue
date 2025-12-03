@@ -16,8 +16,8 @@
   <v-app-bar-title><RouterLink to="/">Emege</RouterLink></v-app-bar-title>
   
   <template v-slot:append>
-    <!-- TODO: if not LOGGED_IN "Log in" else "Profile"   -->
-    <RouterLink to="/profile">Profile</RouterLink>
+    <!-- TODO: route to sign-in page if not signed in -->
+    <v-btn icon="mdi-account" to="/profile" :active="false" v-tooltip="'Profile / Sign in'"></v-btn>
 
     <!-- TODO: implement user search -->
     <v-btn icon="mdi-magnify" v-tooltip="searchUsersTooltip"></v-btn>
