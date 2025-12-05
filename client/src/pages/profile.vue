@@ -25,9 +25,9 @@
         <div id="user-images" class="root-content-div">
           <h1>My images</h1>
            <div class="imageContainer">
-            <v-img :src="images[page - 1].image" height="300px"></v-img>
+            <v-img :src="images[page - 1]?.image" height="300px"></v-img>
             <p>
-              {{ images[page - 1].title }}
+              {{ images[page - 1]?.title }}
             </p>
            </div>
           <v-pagination v-model="page" :length="pages" />
