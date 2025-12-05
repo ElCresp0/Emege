@@ -30,6 +30,18 @@ public class UserController : Controller
         return (user != null) ? Ok(user) : NotFound($"Could not find user: {name}");
     }
 
+    // GET: /users/{name}/images/count
+    [HttpGet("/users/{name}/images/count")]
+    public ActionResult getUserImageCount(string name)
+    {
+        // Log
+        _logger.LogDebug($"GET user image count: {name}");
+
+        int? userImageCount = UserService.GetUserImageCount(name);
+
+        return (userImageCount != null) ? Ok(userImageCount) : NotFound($"Could not find user's image dir: {name}");
+    }
+
     // POST: /users/register
     [HttpPost("/users/register")]
     public ActionResult registerUser(string name)
