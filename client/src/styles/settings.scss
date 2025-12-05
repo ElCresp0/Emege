@@ -8,3 +8,40 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+a {
+    color: #ffffcc;
+    text-decoration: none;
+}
+
+body {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#root-container {
+    padding-top: 2em;
+    // padding-left: 5em;
+}
+
+.root-content-div {
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+}
+
+.root-content-div:hover {
+    background-color: #ededed;
+}
+
+// 
+// navbar
+// 
+
+// .v-toolbar__prepend {
+//     padding-left: 1em;
+// }
+
+.v-toolbar__append {
+    padding-right: 1em;
+}

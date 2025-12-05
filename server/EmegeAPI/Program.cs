@@ -1,11 +1,3 @@
-// namespace EmegeAPI
-
-// using Microsoft.EntityFrameworkCore;
-// using EmegeAPI.Models;
-// using Models;
-
-using EmegeAPI.Controllers;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,6 +8,9 @@ builder.Services.AddControllers();
 // builder.Services.AddOpenApi();
 // builder.Services.AddDbContext<TodoContext>(opt =>
 //     opt.UseInMemoryDatabase("TodoList"));
+
+// logging
+builder.Services.AddLogging();
 
 var app = builder.Build();
 

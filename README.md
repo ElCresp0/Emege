@@ -81,6 +81,6 @@ Solution:
 ```yaml
 environment:
     - ASPNETCORE_ENVIRONMENT=Local
-    - ASPNETCORE_URLS=http://*:5007
-    - DOTNET_URLS=http://*:5007
+    - ASPNETCORE_URLS=http://*:5000
+    - DOTNET_URLS=http://*:5000
 ```

@@ -16,7 +16,7 @@ public class UserService
         }
         else
         {
-            return new UserModel(Guid.NewGuid(), name);
+            return new UserModel(Guid.NewGuid(), name, new DateOnly(2025, 1, 1));
         }
     }
     public static UserModel? CreateUser(string name)
@@ -24,7 +24,7 @@ public class UserService
         if (name == "Greg")
         {
             Guid user_id = Guid.NewGuid();
-            return new UserModel(user_id, name);
+            return new UserModel(user_id, name, new DateOnly());
         }
         else
         {

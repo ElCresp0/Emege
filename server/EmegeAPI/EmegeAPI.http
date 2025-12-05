@@ -1,4 +1,4 @@
-@EmegeAPI_HostAddress = http://*:5007
+@EmegeAPI_HostAddress = http://*:5000
 
 GET {{EmegeAPI_HostAddress}}/weatherforecast/
 Accept: application/json
