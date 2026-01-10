@@ -6,11 +6,18 @@ namespace EmegeAPI.Models;
 [Index(nameof(Name), IsUnique = true)]
 public class UserModel
 {
-    public UserModel(string name, Guid? id = null, DateOnly? joinDate = null)
+    public UserModel()
+    // Empty constructor required by EntityFramework
     {
-        Name = name;
-        Id = (id == null) ? new Guid() : (Guid)id;
-        JoinDate = (joinDate == null) ? DateOnly.FromDateTime(DateTime.Now) : (DateOnly)joinDate;
+        Name = "";
+        Id = new Guid();
+        JoinDate = new DateOnly();
+    }
+    public UserModel(string Name, Guid? Id = null, DateOnly? JoinDate = null)
+    {
+        this.Name = Name;
+        this.Id = (Id == null) ? Guid.NewGuid() : (Guid)Id;
+        this.JoinDate = (JoinDate == null) ? DateOnly.FromDateTime(DateTime.Now) : (DateOnly)JoinDate;
     }
 
     [Key]

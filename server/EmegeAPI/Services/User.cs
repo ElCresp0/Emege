@@ -31,9 +31,9 @@ public class UserService
             UserModel user = await _context.Users.Where(u => u.Name == name).SingleAsync();
             return user;
         }
-        catch // SingleAsync throws errors if none or many records match the query
+        catch (Exception exc) when (exc is ArgumentNullException || exc is InvalidOperationException)
         {
-            return null; // null; // NotFound
+            return null;
         }
 
     }

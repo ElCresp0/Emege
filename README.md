@@ -7,6 +7,12 @@ This is a full stack application made for me to learn and show the usage of the 
 - C# (backend)
 - vue.js (frontend)
 
+## Prepare secrets
+
+This application requires secrets to be set up manually before building:
+
+- `secrets/db_password.txt`
+
 ## Run on host
 
 ```bash
@@ -50,7 +56,7 @@ volumes:
 - some StackOverflow users suggested certain modifications of the `client\package.json` \
   but in this case it didn't resolve the issue
 
-2.  
+1.  
 
 Problem:
 
@@ -65,7 +71,7 @@ Solution:
 npm run dev -- --host
 ```
 
-3.  
+1.  
 
 Problem:
 

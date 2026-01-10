@@ -30,19 +30,20 @@ public class UserController : Controller
 
         UserModel? user = await _userService.GetUser(name);
         return (user != null) ? Ok(user) : NotFound($"Could not find user: {name}");
+        // TODO: return UserDTO instead of UserModel
     }
 
     // GET: /users/{name}/images/count
-    [HttpGet("/users/{name}/images/count")]
-    public async Task<ActionResult> getUserImageCountAsync(string name)
-    {
-        // Log
-        _logger.LogDebug($"GET user image count: {name}");
+    // [HttpGet("/users/{name}/images/count")]
+    // public async Task<ActionResult> getUserImageCountAsync(string name)
+    // {
+    //     // Log
+    //     _logger.LogDebug($"GET user image count: {name}");
 
-        int? userImageCount = await _userService.GetUserImageCount(name);
+    //     int? userImageCount = await _userService.GetUserImageCount(name);
 
-        return (userImageCount != null) ? Ok(userImageCount) : NotFound($"Could not find user's image dir: {name}");
-    }
+    //     return (userImageCount != null) ? Ok(userImageCount) : NotFound($"Could not find user's image dir: {name}");
+    // }
 
     // // PUT: /users/{name}/image?name,file
     // [HttpPut("/users/{userName}/image")]

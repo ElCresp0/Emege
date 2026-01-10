@@ -1,1 +1,0 @@
-# postgres data volume directory

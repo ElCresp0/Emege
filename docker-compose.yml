@@ -23,40 +23,38 @@ services:
       - ASPNETCORE_ENVIRONMENT=Local
       - ASPNETCORE_URLS=http://*:5000
       - DOTNET_URLS=http://*:5000
-      - ConnectionStrings__default=Host=postgres;Database=EmegeDB;Username=postgres;Password=p@ssw0rd
     volumes:
       - ./server:/app
     depends_on:
       postgres:
         condition: service_healthy
         restart: true
-  
+    secrets:
+      - db_password
+
   # https://hub.docker.com/_/postgres/#-via-docker-compose
   postgres:
     container_name: EmegePostgres
-    build:
-      context: ./postgres
-      dockerfile: Dockerfile
-    image: emege_db
-    ports: "5432:5432"
+    image: postgres:16.9-bullseye
+    ports: ["5432:5432"]
     restart: always
     # shm_size: 128mb
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: p@ssw0rd
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       retries: 5
       start_period: 30s
       timeout: 10s
+    secrets:
+      - db_password
 
-  # adminer:
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
+secrets:
+  db_password:
+    file: secrets/db_password.txt
 
 networks:
   emege_network:
