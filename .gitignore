@@ -3,3 +3,5 @@
 *.sln
 
 project.png
+
+postgres_data

@@ -25,6 +25,36 @@ services:
       - DOTNET_URLS=http://*:5000
     volumes:
       - ./server:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+        restart: true
+    secrets:
+      - db_password
+
+  # https://hub.docker.com/_/postgres/#-via-docker-compose
+  postgres:
+    container_name: EmegePostgres
+    image: postgres:16.9-bullseye
+    ports: ["5432:5432"]
+    restart: always
+    # shm_size: 128mb
+    volumes:
+      - ./postgres/postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    secrets:
+      - db_password
+
+secrets:
+  db_password:
+    file: secrets/db_password.txt
 
 networks:
   emege_network:
